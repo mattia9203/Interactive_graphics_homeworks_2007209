@@ -1,1 +1,2 @@
 # Interactive_graphics_homeworks_2007209
+This is a repository that contain the homeworks of university course Interactive Graphics 2025. This homeworks are divided by a several folders, each of them stores a different homework.
