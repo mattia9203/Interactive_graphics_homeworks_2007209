@@ -3,6 +3,7 @@
 // It returns the combined 4x4 transformation matrix as an array in column-major order.
 // The given projection matrix is also a 4x4 matrix stored as an array in column-major order.
 // You can use the MatrixMult function defined in project4.html to multiply two 4x4 matrices in the same format.
+
 // multiply two 4×4 column-major matrices (a · b)
 function mat4Mul(a, b) {
 	const out = new Float32Array(16);
@@ -105,9 +106,6 @@ function mat4Mul(a, b) {
 	setTexture(img) {
 	  gl.bindTexture(gl.TEXTURE_2D, this.texID);
   
-	  // if your image comes upside-down, uncomment the next line:
-	  // gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
-  
 	  gl.texImage2D(
 		gl.TEXTURE_2D, 0,
 		gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE,
@@ -117,7 +115,6 @@ function mat4Mul(a, b) {
   
 	  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
 	  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-	  // <— use REPEAT so bricks tile all over, not clamp to a single border pixel
 	  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
 	  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
   
@@ -159,9 +156,7 @@ function mat4Mul(a, b) {
   }
   
   
-  // --------------------------------------------------------------------
-  // GLSL sources (completely different names & layout from before)
-  // --------------------------------------------------------------------
+  
   const VERT_SRC = `
 	attribute vec3 position;
 	attribute vec2 texuv;
